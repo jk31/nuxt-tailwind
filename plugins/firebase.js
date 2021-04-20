@@ -16,6 +16,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Auth Observer
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     console.log("#### ONAUTH OBSERVER LOGGED IN");
@@ -30,6 +31,10 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
+// FireStore
+const db = firebase.firestore();
+
 export default ({ app }, inject) => {
   inject("firebase", firebase);
+  inject("db", db);
 };
