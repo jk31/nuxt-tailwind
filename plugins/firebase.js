@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/functions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCiNEXwT1YC-_-xcebSwZMGSQxafMPOtT0",
@@ -41,6 +42,7 @@ const db = firebase.firestore();
 if (location.hostname === "localhost") {
   auth.useEmulator("http://localhost:9099");
   db.useEmulator("localhost", 8080);
+  firebase.functions().useEmulator("localhost", 5001);
 }
 
 export default ({ app }, inject) => {

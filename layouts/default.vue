@@ -4,6 +4,7 @@
     <nuxt-link to="/login">Login</nuxt-link>
     <nuxt-link to="/logout">Logout</nuxt-link>
     <nuxt-link to="/firestore">Firestore</nuxt-link>
+    <nuxt-link to="/functions">Functions</nuxt-link>
     <Nuxt />
   </div>
 </template>
