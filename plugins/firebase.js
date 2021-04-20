@@ -31,8 +31,17 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
+// Auth, probably only needed for the emulator
+const auth = firebase.auth();
+
 // FireStore
 const db = firebase.firestore();
+
+// Emulator connections for ocalhost development
+if (location.hostname === "localhost") {
+  auth.useEmulator("http://localhost:9099");
+  db.useEmulator("localhost", 8080);
+}
 
 export default ({ app }, inject) => {
   inject("firebase", firebase);
