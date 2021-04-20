@@ -33,12 +33,14 @@ export default {
         .collection("tasks")
         .add({
           title: this.title,
-          description: this.description
+          description: this.description,
+          user_uid: this.$firebase.auth().currentUser.uid
         })
         .then(docRef => {
           console.log("Document written with ID: ", docRef.id);
         })
         .catch(error => {
+          console.log("dadsd");
           console.error("Error adding document: ", error);
         });
     },
@@ -46,9 +48,11 @@ export default {
       console.log("Read tasks");
       this.$db
         .collection("tasks")
+        .where("user_uid", "==", this.$firebase.auth().currentUser.uid)
         .get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
+            console.log(doc.id);
             console.log(doc.data());
           });
         });
