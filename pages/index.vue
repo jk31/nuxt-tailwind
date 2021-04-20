@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div id="first" class="w-20 border-2 border-green-200">First</div>
-    <div id="second" class="w-20">Second</div>
+    <h1>Index</h1>
+    <nuxt-link to="/register">Register</nuxt-link>
   </div>
 </template>
 
