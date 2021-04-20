@@ -16,6 +16,20 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    console.log("#### ONAUTH OBSERVER LOGGED IN");
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    var uid = user.uid;
+    // ...
+  } else {
+    console.log("#### ONAUTH OBSERVER LOGGED OUT");
+    // User is signed out
+    // ...
+  }
+});
+
 export default ({ app }, inject) => {
   inject("firebase", firebase);
 };

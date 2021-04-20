@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Register</h1>
+    <h1>Login</h1>
     <form>
       <input v-model="email" class="border-2 border-red-500" type="text" />
       <input
@@ -28,7 +28,7 @@ export default {
       console.log("Create User Start");
       this.$firebase
         .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
+        .signInWithEmailAndPassword(this.email, this.password)
         .then(userCredential => {
           // Signed in
           let user = userCredential.user;
