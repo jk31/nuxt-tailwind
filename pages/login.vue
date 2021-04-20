@@ -8,8 +8,8 @@
         class="border-2 border-red-500"
         type="password"
       />
-      <button @click.prevent="createUser" class="border-2 border-red-500">
-        Create User
+      <button @click.prevent="login" class="border-2 border-red-500">
+        Login
       </button>
     </form>
   </div>
@@ -24,8 +24,8 @@ export default {
     };
   },
   methods: {
-    createUser() {
-      console.log("Create User Start");
+    login() {
+      console.log("Login");
       this.$firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
